@@ -60,8 +60,18 @@ IF(AND(A2<=2; OR(
    ISNUMBER(SEARCH("Akan beli lagi di toko ini"; E2))
 )); "Anomali – review positif di rating rendah"; "")
 
+ - pull ke file Main_Ecommerce
+ - =VLOOKUP(A2;[Review_Data.xlsx]Sheet1!$A$2:$F$501;2;FALSE)
+ - =VLOOKUP(A2;[Review_Data.xlsx]Sheet1!$A$2:$F$501;3;FALSE)
+ - =VLOOKUP(A2;[Review_Data.xlsx]Sheet1!$A$2:$F$501;4;FALSE)
+ - =VLOOKUP(A2;[Review_Data.xlsx]Sheet1!$A$2:$F$501;5;FALSE)
 
+5	Pull data from the Shipping_Info file based on the key into the Main_Ecommerce file on the Order_Data sheet.
 
+ - =VLOOKUP(A2;[Shipping_Info.xlsx]Sheet1!$A$2:$E$501;2;FALSE)
+ - =VLOOKUP(A2;[Shipping_Info.xlsx]Sheet1!$A$2:$E$501;3;FALSE)
+ - =VLOOKUP(A2;[Shipping_Info.xlsx]Sheet1!$A$2:$E$501;4;FALSE)
+ - =VLOOKUP(A2;[Shipping_Info.xlsx]Sheet1!$A$2:$E$501;5;FALSE)
 
 
 
