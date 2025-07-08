@@ -7,17 +7,15 @@
  - =VLOOKUP(A2;[Customer_Info.xlsx]Sheet1!$A$2:$E$501;5;FALSE)
 
 2 Pull data from the Product_Catalog file, but first clean the Stock_Unit column, then transfer all the data along with the key to the Main_Ecommerce file on the Order_Data sheet.	
- - clean data di  Stock_Unit, pertama klik column Stock_Unit -> tab data -> Text to Columns -> Pilih Delimited > klik Next -> Centang Space > klik Next -> finish dan hapus value column 6 dan 7
+ - cleaning dulu di kolom Stock_Unit pakai rumus
+   1. =IF(ISNUMBER(VALUE(E2));VALUE(E2);IF(ISNUMBER(SEARCH("puluh";E2));VALUE(LEFT(E2;FIND("puluh";E2)-1))*10+IFERROR(VALUE(MID(E2;FIND("puluh";E2)+6;LEN(E2)));0);IFERROR(VALUE(E2);E2))) "menghilangkan nilai puluh di tengah dan mengganti nilai puluh di akhir jadi 0"
+   2. =SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(F2;"buah";"");"pcs";"");"unit";"")  " menghilangkan kata buah,pcs,unit"
  - =VLOOKUP(A2;[Product_Catalog.xlsx]Sheet1!$A$2:$E$501;2;FALSE)
  - =VLOOKUP(A2;[Product_Catalog.xlsx]Sheet1!$A$2:$E$501;3;FALSE)
  - =VLOOKUP(A2;[Product_Catalog.xlsx]Sheet1!$A$2:$E$501;4;FALSE)
- - =VLOOKUP(A2;[Product_Catalog.xlsx]Sheet1!$A$2:$E$501;5;FALSE)
+ - =VLOOKUP(A2;[Product_Catalog.xlsx]Sheet1!$A$2:$E$501;7;FALSE)
 
-3	Pull data from the Order_Records file, but you must fill in the Total_Amount column using information from the Product_Catalog file. Then transfer all the data along with the  key into the Main_Ecommerce file on the Order_Data sheet.
-
- - sebelum kita menghitung total amount, cleaning dulu di kolom Stock_Unit pakai rumus
-   1. =IF(ISNUMBER(VALUE(E2));VALUE(E2);IF(ISNUMBER(SEARCH("puluh";E2));VALUE(LEFT(E2;FIND("puluh";E2)-1))*10+IFERROR(VALUE(MID(E2;FIND("puluh";E2)+6;LEN(E2)));0);IFERROR(VALUE(E2);E2))) "menghilangkan nilai puluh di tengah dan mengganti nilai puluh di akhir jadi 0"
-   2. =SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(F2;"buah";"");"pcs";"");"unit";"")  " menghilangkan kata buah,pcs,unit"
+3	Pull data from the Order_Records file, but you must fill in the Total_Amount column using information from the Product_Catalog file. Then transfer all the data along with the  key into the Main_Ecommerce file on the Order_Data sheet. 
  - buka file  Order_Records di samping column Total_Amount baris 2 pakai rumus :  =VLOOKUP(A2;'[Product_Catalog (1).xlsx]Sheet1'!$A$2:$G$501;4;FALSE)*VLOOKUP(A2;'[Product_Catalog (1).xlsx]Sheet1'!$A$2:$G$501;7;FALSE) 
  - lalu di kolom total amount F2 baris 2 =E2*G2 (E2 : Quantity_Purchased , G2 : Stock_Unit) lalu enter dan drak kebawah
  - =VLOOKUP(A2; [Order_Records.xlsx]Sheet1!$A$2:$F$501;2;FALSE)
