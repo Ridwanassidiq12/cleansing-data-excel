@@ -61,6 +61,7 @@ IF(AND(A2<=2; OR(
  - =VLOOKUP(A2;[Shipping_Info.xlsx]Sheet1!$A$2:$E$501;4;FALSE)
  - =VLOOKUP(A2;[Shipping_Info.xlsx]Sheet1!$A$2:$E$501;5;FALSE)
 
+link medium : https://medium.com/@r.assidik19/automasi-analisis-excel-menggabung-kan-banyak-sheet-dan-visualisasikan-c339105f94cb
 
 
 
