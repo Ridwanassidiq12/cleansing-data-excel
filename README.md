@@ -32,19 +32,6 @@
 4	Excellent
 5	Good
 lalu gunakan rumus ini di sheet 1 =VLOOKUP(B2;Table1;2;FALSE)
-   
- - buat sheet2 lalu buat tabel :
-5	Pengiriman sangat cepat
-5	Sangat puas dengan pembelian ini
-4	Produk sesuai ekspektasi
-4	Akan beli lagi di toko ini
-3	Pelayanan memuaskan
-3	Harga terlalu mahal
-2	Ukuran tidak sesuai deskripsi
-2	Warna berbeda dari gambar
-1	Kualitas kurang baik
-1	Barang cacat saat diterima
-lalu gunakan rumus ini di sheet 1 =INDEX(FILTER(Table2[Column2]; Table2[Column1]=B2); RANDBETWEEN(1; COUNTIF(Table2[Column1]; B2)))
 
  - mendeteksi anomali
 =IF(AND(A2>=4; OR(
